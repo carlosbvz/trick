@@ -11,5 +11,18 @@
       "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-dev-145408/e2e72540-3213-11ed-b5d0-120c6f66e13d",
       "AmplifyAppId": "d25rj31cmu45vb"
     }
+  },
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-trick-test-212058-authRole",
+      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-test-212058-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-test-212058-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-trick-test-212058-deployment",
+      "UnauthRoleName": "amplify-trick-test-212058-unauthRole",
+      "StackName": "amplify-trick-test-212058",
+      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-test-212058/ecb9bbb0-3249-11ed-870a-0efc7f49ca19",
+      "AmplifyAppId": "d25rj31cmu45vb"
+    }
   }
 }
