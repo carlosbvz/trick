@@ -11,5 +11,48 @@
       "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-dev-213518/eda4f420-324b-11ed-a0ab-0acde95eafd1",
       "AmplifyAppId": "d21miqmv3orswr"
     }
+  },
+  "auth": {
+    "trick63a55ef0": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
+        "logicalId": "authtrick63a55ef0"
+      },
+      "lastPushTimeStamp": "2022-09-12T03:55:03.483Z",
+      "output": {
+        "UserPoolId": "us-east-1_N7mkoznrd",
+        "AppClientIDWeb": "5iistga8rr9uu0sv4kqnjlqus2",
+        "AppClientID": "7rtimqf8lkdsv8frj48lav5hvp",
+        "IdentityPoolId": "us-east-1:4759b19f-c6a5-4a23-ac4f-42f69755a952",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:474215544787:userpool/us-east-1_N7mkoznrd",
+        "IdentityPoolName": "trick63a55ef0_identitypool_63a55ef0__dev",
+        "UserPoolName": "trick63a55ef0_userpool_63a55ef0"
+      },
+      "lastPushDirHash": "VqV3Vo5NfhlvZOEJD+KNie6lRL0="
+    }
   }
 }

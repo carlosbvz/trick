@@ -10,6 +10,11 @@
       "StackName": "amplify-trick-dev-213518",
       "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-dev-213518/eda4f420-324b-11ed-a0ab-0acde95eafd1",
       "AmplifyAppId": "d21miqmv3orswr"
+    },
+    "categories": {
+      "auth": {
+        "trick63a55ef0": {}
+      }
     }
   },
   "test": {
