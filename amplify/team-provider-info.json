@@ -17,19 +17,6 @@
       }
     }
   },
-  "test": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-trick-test-213900-authRole",
-      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-test-213900-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-test-213900-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-trick-test-213900-deployment",
-      "UnauthRoleName": "amplify-trick-test-213900-unauthRole",
-      "StackName": "amplify-trick-test-213900",
-      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-test-213900/71c91420-324c-11ed-a969-122479817a53",
-      "AmplifyAppId": "d21miqmv3orswr"
-    }
-  },
   "prod": {
     "awscloudformation": {
       "AuthRoleName": "amplify-trick-prod-214023-authRole",
