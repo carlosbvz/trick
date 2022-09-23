@@ -1,15 +1,38 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-trick-dev-143859-authRole",
-      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-dev-143859-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-dev-143859-authRole",
+      "AuthRoleName": "amplify-trick-dev-213518-authRole",
+      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-dev-213518-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-dev-213518-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-trick-dev-143859-deployment",
-      "UnauthRoleName": "amplify-trick-dev-143859-unauthRole",
-      "StackName": "amplify-trick-dev-143859",
-      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-dev-143859/c4ce7150-3211-11ed-92af-0e5f7b6f9193",
-      "AmplifyAppId": "d261eb11d5wytl"
+      "DeploymentBucketName": "amplify-trick-dev-213518-deployment",
+      "UnauthRoleName": "amplify-trick-dev-213518-unauthRole",
+      "StackName": "amplify-trick-dev-213518",
+      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-dev-213518/eda4f420-324b-11ed-a0ab-0acde95eafd1",
+      "AmplifyAppId": "d21miqmv3orswr"
+    },
+    "categories": {
+      "auth": {
+        "trick63a55ef0": {}
+      }
+    }
+  },
+  "prod": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-trick-prod-214023-authRole",
+      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-prod-214023-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-prod-214023-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-trick-prod-214023-deployment",
+      "UnauthRoleName": "amplify-trick-prod-214023-unauthRole",
+      "StackName": "amplify-trick-prod-214023",
+      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-prod-214023/a2dfe980-324c-11ed-af9b-0a00976cfbdb",
+      "AmplifyAppId": "d21miqmv3orswr"
+    },
+    "categories": {
+      "auth": {
+        "trick63a55ef0": {}
+      }
     }
   }
 }

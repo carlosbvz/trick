@@ -1,0 +1,58 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-trick-prod-214023-authRole",
+      "UnauthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-prod-214023-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::474215544787:role/amplify-trick-prod-214023-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-trick-prod-214023-deployment",
+      "UnauthRoleName": "amplify-trick-prod-214023-unauthRole",
+      "StackName": "amplify-trick-prod-214023",
+      "StackId": "arn:aws:cloudformation:us-east-1:474215544787:stack/amplify-trick-prod-214023/a2dfe980-324c-11ed-af9b-0a00976cfbdb",
+      "AmplifyAppId": "d21miqmv3orswr"
+    }
+  },
+  "auth": {
+    "trick63a55ef0": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-prod-214023-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
+        "logicalId": "authtrick63a55ef0"
+      },
+      "lastPushTimeStamp": "2022-09-23T15:27:00.988Z",
+      "output": {
+        "UserPoolId": "us-east-1_1nqJcKOHd",
+        "AppClientIDWeb": "74tv76ionda8js9mgmvtbviq25",
+        "AppClientID": "3mad88ags02nlj30hooe6p9ekd",
+        "IdentityPoolId": "us-east-1:30ddde5e-1f6c-42c1-b5d9-cbaab21bb5be",
+        "UserPoolArn": "arn:aws:cognito-idp:us-east-1:474215544787:userpool/us-east-1_1nqJcKOHd",
+        "IdentityPoolName": "trick63a55ef0_identitypool_63a55ef0__prod",
+        "UserPoolName": "trick63a55ef0_userpool_63a55ef0"
+      },
+      "lastPushDirHash": "VqV3Vo5NfhlvZOEJD+KNie6lRL0="
+    }
+  }
+}
