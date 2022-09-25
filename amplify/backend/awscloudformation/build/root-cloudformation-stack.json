@@ -155,7 +155,7 @@
     "authtrick63a55ef0": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-trick-prod-214023-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
         "Parameters": {
           "identityPoolName": "trick63a55ef0_identitypool_63a55ef0",
           "allowUnauthenticatedIdentities": false,
@@ -202,14 +202,14 @@
           },
           "breakCircularDependency": true,
           "dependsOn": "",
-          "env": "dev"
+          "env": "prod"
         }
       }
     },
     "apitrick": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-trick-prod-214023-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "Parameters": {
           "AppSyncApiName": "trick",
           "DynamoDBBillingMode": "PAY_PER_REQUEST",
@@ -220,9 +220,9 @@
               "Outputs.UserPoolId"
             ]
           },
-          "S3DeploymentBucket": "amplify-trick-dev-213518-deployment",
+          "S3DeploymentBucket": "amplify-trick-prod-214023-deployment",
           "S3DeploymentRootKey": "amplify-appsync-files/af09dfb0fa93456fdf35a731b77fb1479326958e",
-          "env": "dev"
+          "env": "prod"
         }
       }
     },
