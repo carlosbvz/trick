@@ -6,10 +6,12 @@ input AMPLIFY {
 type Game @model {
   id: ID!
   description: String
-  players: [Player] @hasMany
+  owner: Player @belongsTo
 }
 
 type Player @model {
   id: ID!
-  email: String!
+  email: String! @index(name: "byEmail", queryField: "playerByEmail")
+  name: String!
+  games: [Game] @hasMany
 }

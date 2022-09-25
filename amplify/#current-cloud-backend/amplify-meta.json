@@ -47,7 +47,7 @@
         "IdentityPoolName": "trick63a55ef0_identitypool_63a55ef0__dev",
         "UserPoolName": "trick63a55ef0_userpool_63a55ef0"
       },
-      "lastPushTimeStamp": "2022-09-25T13:32:50.701Z",
+      "lastPushTimeStamp": "2022-09-25T17:28:42.648Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
         "logicalId": "authtrick63a55ef0"
@@ -94,8 +94,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apitrick"
       },
-      "lastPushTimeStamp": "2022-09-25T13:32:53.966Z",
-      "lastPushDirHash": "X5jbkwU/3VsYpPY6Qi/SLNdXZfk="
+      "lastPushTimeStamp": "2022-09-25T17:28:46.189Z",
+      "lastPushDirHash": "zGtcgM7auZP0kB4N4caMZbZyoJo="
     }
   }
 }

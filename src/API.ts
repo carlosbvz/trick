@@ -5,6 +5,7 @@
 export type CreateGameInput = {
   id?: string | null,
   description?: string | null,
+  playerGamesId?: string | null,
 };
 
 export type ModelGameConditionInput = {
@@ -12,6 +13,7 @@ export type ModelGameConditionInput = {
   and?: Array< ModelGameConditionInput | null > | null,
   or?: Array< ModelGameConditionInput | null > | null,
   not?: ModelGameConditionInput | null,
+  playerGamesId?: ModelIDInput | null,
 };
 
 export type ModelStringInput = {
@@ -54,53 +56,6 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type Game = {
-  __typename: "Game",
-  id: string,
-  description?: string | null,
-  players?: ModelPlayerConnection | null,
-  createdAt: string,
-  updatedAt: string,
-};
-
-export type ModelPlayerConnection = {
-  __typename: "ModelPlayerConnection",
-  items:  Array<Player | null >,
-  nextToken?: string | null,
-};
-
-export type Player = {
-  __typename: "Player",
-  id: string,
-  email: string,
-  createdAt: string,
-  updatedAt: string,
-  gamePlayersId?: string | null,
-};
-
-export type UpdateGameInput = {
-  id: string,
-  description?: string | null,
-};
-
-export type DeleteGameInput = {
-  id: string,
-};
-
-export type CreatePlayerInput = {
-  id?: string | null,
-  email: string,
-  gamePlayersId?: string | null,
-};
-
-export type ModelPlayerConditionInput = {
-  email?: ModelStringInput | null,
-  and?: Array< ModelPlayerConditionInput | null > | null,
-  or?: Array< ModelPlayerConditionInput | null > | null,
-  not?: ModelPlayerConditionInput | null,
-  gamePlayersId?: ModelIDInput | null,
-};
-
 export type ModelIDInput = {
   ne?: string | null,
   eq?: string | null,
@@ -117,10 +72,60 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
+export type Game = {
+  __typename: "Game",
+  id: string,
+  description?: string | null,
+  owner?: Player | null,
+  createdAt: string,
+  updatedAt: string,
+  playerGamesId?: string | null,
+};
+
+export type Player = {
+  __typename: "Player",
+  id: string,
+  email: string,
+  name: string,
+  games?: ModelGameConnection | null,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type ModelGameConnection = {
+  __typename: "ModelGameConnection",
+  items:  Array<Game | null >,
+  nextToken?: string | null,
+};
+
+export type UpdateGameInput = {
+  id: string,
+  description?: string | null,
+  playerGamesId?: string | null,
+};
+
+export type DeleteGameInput = {
+  id: string,
+};
+
+export type CreatePlayerInput = {
+  id?: string | null,
+  email: string,
+  name: string,
+};
+
+export type ModelPlayerConditionInput = {
+  email?: ModelStringInput | null,
+  name?: ModelStringInput | null,
+  and?: Array< ModelPlayerConditionInput | null > | null,
+  or?: Array< ModelPlayerConditionInput | null > | null,
+  not?: ModelPlayerConditionInput | null,
+};
+
 export type UpdatePlayerInput = {
   id: string,
   email?: string | null,
-  gamePlayersId?: string | null,
+  name?: string | null,
 };
 
 export type DeletePlayerInput = {
@@ -133,22 +138,29 @@ export type ModelGameFilterInput = {
   and?: Array< ModelGameFilterInput | null > | null,
   or?: Array< ModelGameFilterInput | null > | null,
   not?: ModelGameFilterInput | null,
-};
-
-export type ModelGameConnection = {
-  __typename: "ModelGameConnection",
-  items:  Array<Game | null >,
-  nextToken?: string | null,
+  playerGamesId?: ModelIDInput | null,
 };
 
 export type ModelPlayerFilterInput = {
   id?: ModelIDInput | null,
   email?: ModelStringInput | null,
+  name?: ModelStringInput | null,
   and?: Array< ModelPlayerFilterInput | null > | null,
   or?: Array< ModelPlayerFilterInput | null > | null,
   not?: ModelPlayerFilterInput | null,
-  gamePlayersId?: ModelIDInput | null,
 };
+
+export type ModelPlayerConnection = {
+  __typename: "ModelPlayerConnection",
+  items:  Array<Player | null >,
+  nextToken?: string | null,
+};
+
+export enum ModelSortDirection {
+  ASC = "ASC",
+  DESC = "DESC",
+}
+
 
 export type CreateGameMutationVariables = {
   input: CreateGameInput,
@@ -160,20 +172,21 @@ export type CreateGameMutation = {
     __typename: "Game",
     id: string,
     description?: string | null,
-    players?:  {
-      __typename: "ModelPlayerConnection",
-      items:  Array< {
-        __typename: "Player",
-        id: string,
-        email: string,
-        createdAt: string,
-        updatedAt: string,
-        gamePlayersId?: string | null,
-      } | null >,
-      nextToken?: string | null,
+    owner?:  {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
+    playerGamesId?: string | null,
   } | null,
 };
 
@@ -187,20 +200,21 @@ export type UpdateGameMutation = {
     __typename: "Game",
     id: string,
     description?: string | null,
-    players?:  {
-      __typename: "ModelPlayerConnection",
-      items:  Array< {
-        __typename: "Player",
-        id: string,
-        email: string,
-        createdAt: string,
-        updatedAt: string,
-        gamePlayersId?: string | null,
-      } | null >,
-      nextToken?: string | null,
+    owner?:  {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
+    playerGamesId?: string | null,
   } | null,
 };
 
@@ -214,20 +228,21 @@ export type DeleteGameMutation = {
     __typename: "Game",
     id: string,
     description?: string | null,
-    players?:  {
-      __typename: "ModelPlayerConnection",
-      items:  Array< {
-        __typename: "Player",
-        id: string,
-        email: string,
-        createdAt: string,
-        updatedAt: string,
-        gamePlayersId?: string | null,
-      } | null >,
-      nextToken?: string | null,
+    owner?:  {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
+    playerGamesId?: string | null,
   } | null,
 };
 
@@ -241,9 +256,21 @@ export type CreatePlayerMutation = {
     __typename: "Player",
     id: string,
     email: string,
+    name: string,
+    games?:  {
+      __typename: "ModelGameConnection",
+      items:  Array< {
+        __typename: "Game",
+        id: string,
+        description?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        playerGamesId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
-    gamePlayersId?: string | null,
   } | null,
 };
 
@@ -257,9 +284,21 @@ export type UpdatePlayerMutation = {
     __typename: "Player",
     id: string,
     email: string,
+    name: string,
+    games?:  {
+      __typename: "ModelGameConnection",
+      items:  Array< {
+        __typename: "Game",
+        id: string,
+        description?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        playerGamesId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
-    gamePlayersId?: string | null,
   } | null,
 };
 
@@ -273,9 +312,21 @@ export type DeletePlayerMutation = {
     __typename: "Player",
     id: string,
     email: string,
+    name: string,
+    games?:  {
+      __typename: "ModelGameConnection",
+      items:  Array< {
+        __typename: "Game",
+        id: string,
+        description?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        playerGamesId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
-    gamePlayersId?: string | null,
   } | null,
 };
 
@@ -288,20 +339,21 @@ export type GetGameQuery = {
     __typename: "Game",
     id: string,
     description?: string | null,
-    players?:  {
-      __typename: "ModelPlayerConnection",
-      items:  Array< {
-        __typename: "Player",
-        id: string,
-        email: string,
-        createdAt: string,
-        updatedAt: string,
-        gamePlayersId?: string | null,
-      } | null >,
-      nextToken?: string | null,
+    owner?:  {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
+    playerGamesId?: string | null,
   } | null,
 };
 
@@ -318,12 +370,17 @@ export type ListGamesQuery = {
       __typename: "Game",
       id: string,
       description?: string | null,
-      players?:  {
-        __typename: "ModelPlayerConnection",
-        nextToken?: string | null,
+      owner?:  {
+        __typename: "Player",
+        id: string,
+        email: string,
+        name: string,
+        createdAt: string,
+        updatedAt: string,
       } | null,
       createdAt: string,
       updatedAt: string,
+      playerGamesId?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -338,9 +395,21 @@ export type GetPlayerQuery = {
     __typename: "Player",
     id: string,
     email: string,
+    name: string,
+    games?:  {
+      __typename: "ModelGameConnection",
+      items:  Array< {
+        __typename: "Game",
+        id: string,
+        description?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        playerGamesId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
-    gamePlayersId?: string | null,
   } | null,
 };
 
@@ -357,9 +426,40 @@ export type ListPlayersQuery = {
       __typename: "Player",
       id: string,
       email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
       createdAt: string,
       updatedAt: string,
-      gamePlayersId?: string | null,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
+export type PlayerByEmailQueryVariables = {
+  email: string,
+  sortDirection?: ModelSortDirection | null,
+  filter?: ModelPlayerFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type PlayerByEmailQuery = {
+  playerByEmail?:  {
+    __typename: "ModelPlayerConnection",
+    items:  Array< {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -370,20 +470,21 @@ export type OnCreateGameSubscription = {
     __typename: "Game",
     id: string,
     description?: string | null,
-    players?:  {
-      __typename: "ModelPlayerConnection",
-      items:  Array< {
-        __typename: "Player",
-        id: string,
-        email: string,
-        createdAt: string,
-        updatedAt: string,
-        gamePlayersId?: string | null,
-      } | null >,
-      nextToken?: string | null,
+    owner?:  {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
+    playerGamesId?: string | null,
   } | null,
 };
 
@@ -392,20 +493,21 @@ export type OnUpdateGameSubscription = {
     __typename: "Game",
     id: string,
     description?: string | null,
-    players?:  {
-      __typename: "ModelPlayerConnection",
-      items:  Array< {
-        __typename: "Player",
-        id: string,
-        email: string,
-        createdAt: string,
-        updatedAt: string,
-        gamePlayersId?: string | null,
-      } | null >,
-      nextToken?: string | null,
+    owner?:  {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
+    playerGamesId?: string | null,
   } | null,
 };
 
@@ -414,20 +516,21 @@ export type OnDeleteGameSubscription = {
     __typename: "Game",
     id: string,
     description?: string | null,
-    players?:  {
-      __typename: "ModelPlayerConnection",
-      items:  Array< {
-        __typename: "Player",
-        id: string,
-        email: string,
-        createdAt: string,
-        updatedAt: string,
-        gamePlayersId?: string | null,
-      } | null >,
-      nextToken?: string | null,
+    owner?:  {
+      __typename: "Player",
+      id: string,
+      email: string,
+      name: string,
+      games?:  {
+        __typename: "ModelGameConnection",
+        nextToken?: string | null,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
     } | null,
     createdAt: string,
     updatedAt: string,
+    playerGamesId?: string | null,
   } | null,
 };
 
@@ -436,9 +539,21 @@ export type OnCreatePlayerSubscription = {
     __typename: "Player",
     id: string,
     email: string,
+    name: string,
+    games?:  {
+      __typename: "ModelGameConnection",
+      items:  Array< {
+        __typename: "Game",
+        id: string,
+        description?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        playerGamesId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
-    gamePlayersId?: string | null,
   } | null,
 };
 
@@ -447,9 +562,21 @@ export type OnUpdatePlayerSubscription = {
     __typename: "Player",
     id: string,
     email: string,
+    name: string,
+    games?:  {
+      __typename: "ModelGameConnection",
+      items:  Array< {
+        __typename: "Game",
+        id: string,
+        description?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        playerGamesId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
-    gamePlayersId?: string | null,
   } | null,
 };
 
@@ -458,8 +585,20 @@ export type OnDeletePlayerSubscription = {
     __typename: "Player",
     id: string,
     email: string,
+    name: string,
+    games?:  {
+      __typename: "ModelGameConnection",
+      items:  Array< {
+        __typename: "Game",
+        id: string,
+        description?: string | null,
+        createdAt: string,
+        updatedAt: string,
+        playerGamesId?: string | null,
+      } | null >,
+      nextToken?: string | null,
+    } | null,
     createdAt: string,
     updatedAt: string,
-    gamePlayersId?: string | null,
   } | null,
 };

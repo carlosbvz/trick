@@ -10,18 +10,19 @@ export const createGame = /* GraphQL */ `
     createGame(input: $input, condition: $condition) {
       id
       description
-      players {
-        items {
-          id
-          email
-          createdAt
-          updatedAt
-          gamePlayersId
+      owner {
+        id
+        email
+        name
+        games {
+          nextToken
         }
-        nextToken
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
+      playerGamesId
     }
   }
 `;
@@ -33,18 +34,19 @@ export const updateGame = /* GraphQL */ `
     updateGame(input: $input, condition: $condition) {
       id
       description
-      players {
-        items {
-          id
-          email
-          createdAt
-          updatedAt
-          gamePlayersId
+      owner {
+        id
+        email
+        name
+        games {
+          nextToken
         }
-        nextToken
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
+      playerGamesId
     }
   }
 `;
@@ -56,18 +58,19 @@ export const deleteGame = /* GraphQL */ `
     deleteGame(input: $input, condition: $condition) {
       id
       description
-      players {
-        items {
-          id
-          email
-          createdAt
-          updatedAt
-          gamePlayersId
+      owner {
+        id
+        email
+        name
+        games {
+          nextToken
         }
-        nextToken
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
+      playerGamesId
     }
   }
 `;
@@ -79,9 +82,19 @@ export const createPlayer = /* GraphQL */ `
     createPlayer(input: $input, condition: $condition) {
       id
       email
+      name
+      games {
+        items {
+          id
+          description
+          createdAt
+          updatedAt
+          playerGamesId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      gamePlayersId
     }
   }
 `;
@@ -93,9 +106,19 @@ export const updatePlayer = /* GraphQL */ `
     updatePlayer(input: $input, condition: $condition) {
       id
       email
+      name
+      games {
+        items {
+          id
+          description
+          createdAt
+          updatedAt
+          playerGamesId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      gamePlayersId
     }
   }
 `;
@@ -107,9 +130,19 @@ export const deletePlayer = /* GraphQL */ `
     deletePlayer(input: $input, condition: $condition) {
       id
       email
+      name
+      games {
+        items {
+          id
+          description
+          createdAt
+          updatedAt
+          playerGamesId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      gamePlayersId
     }
   }
 `;

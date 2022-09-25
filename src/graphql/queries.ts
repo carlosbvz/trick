@@ -7,18 +7,19 @@ export const getGame = /* GraphQL */ `
     getGame(id: $id) {
       id
       description
-      players {
-        items {
-          id
-          email
-          createdAt
-          updatedAt
-          gamePlayersId
+      owner {
+        id
+        email
+        name
+        games {
+          nextToken
         }
-        nextToken
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
+      playerGamesId
     }
   }
 `;
@@ -32,11 +33,16 @@ export const listGames = /* GraphQL */ `
       items {
         id
         description
-        players {
-          nextToken
+        owner {
+          id
+          email
+          name
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
+        playerGamesId
       }
       nextToken
     }
@@ -47,9 +53,19 @@ export const getPlayer = /* GraphQL */ `
     getPlayer(id: $id) {
       id
       email
+      name
+      games {
+        items {
+          id
+          description
+          createdAt
+          updatedAt
+          playerGamesId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      gamePlayersId
     }
   }
 `;
@@ -63,9 +79,41 @@ export const listPlayers = /* GraphQL */ `
       items {
         id
         email
+        name
+        games {
+          nextToken
+        }
         createdAt
         updatedAt
-        gamePlayersId
+      }
+      nextToken
+    }
+  }
+`;
+export const playerByEmail = /* GraphQL */ `
+  query PlayerByEmail(
+    $email: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelPlayerFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    playerByEmail(
+      email: $email
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        email
+        name
+        games {
+          nextToken
+        }
+        createdAt
+        updatedAt
       }
       nextToken
     }

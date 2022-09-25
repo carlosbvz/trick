@@ -7,18 +7,19 @@ export const onCreateGame = /* GraphQL */ `
     onCreateGame {
       id
       description
-      players {
-        items {
-          id
-          email
-          createdAt
-          updatedAt
-          gamePlayersId
+      owner {
+        id
+        email
+        name
+        games {
+          nextToken
         }
-        nextToken
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
+      playerGamesId
     }
   }
 `;
@@ -27,18 +28,19 @@ export const onUpdateGame = /* GraphQL */ `
     onUpdateGame {
       id
       description
-      players {
-        items {
-          id
-          email
-          createdAt
-          updatedAt
-          gamePlayersId
+      owner {
+        id
+        email
+        name
+        games {
+          nextToken
         }
-        nextToken
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
+      playerGamesId
     }
   }
 `;
@@ -47,18 +49,19 @@ export const onDeleteGame = /* GraphQL */ `
     onDeleteGame {
       id
       description
-      players {
-        items {
-          id
-          email
-          createdAt
-          updatedAt
-          gamePlayersId
+      owner {
+        id
+        email
+        name
+        games {
+          nextToken
         }
-        nextToken
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
+      playerGamesId
     }
   }
 `;
@@ -67,9 +70,19 @@ export const onCreatePlayer = /* GraphQL */ `
     onCreatePlayer {
       id
       email
+      name
+      games {
+        items {
+          id
+          description
+          createdAt
+          updatedAt
+          playerGamesId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      gamePlayersId
     }
   }
 `;
@@ -78,9 +91,19 @@ export const onUpdatePlayer = /* GraphQL */ `
     onUpdatePlayer {
       id
       email
+      name
+      games {
+        items {
+          id
+          description
+          createdAt
+          updatedAt
+          playerGamesId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      gamePlayersId
     }
   }
 `;
@@ -89,9 +112,19 @@ export const onDeletePlayer = /* GraphQL */ `
     onDeletePlayer {
       id
       email
+      name
+      games {
+        items {
+          id
+          description
+          createdAt
+          updatedAt
+          playerGamesId
+        }
+        nextToken
+      }
       createdAt
       updatedAt
-      gamePlayersId
     }
   }
 `;

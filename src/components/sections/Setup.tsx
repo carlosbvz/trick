@@ -1,5 +1,5 @@
-import { GameState } from "../interfaces/GameInterfaces";
-import { useGame } from "../contexts/GameContext";
+import { GameState } from "../../interfaces/GameInterfaces";
+import { useGame } from "../../contexts/GameContext";
 
 export default function Setup() {
   const { dispatch } = useGame();
