@@ -155,7 +155,7 @@
     "authtrick63a55ef0": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-trick-prod-214023-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
         "Parameters": {
           "identityPoolName": "trick63a55ef0_identitypool_63a55ef0",
           "allowUnauthenticatedIdentities": false,
@@ -202,7 +202,7 @@
           },
           "breakCircularDependency": true,
           "dependsOn": "",
-          "env": "prod"
+          "env": "dev"
         }
       }
     },
