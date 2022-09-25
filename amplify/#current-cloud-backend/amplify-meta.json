@@ -47,12 +47,55 @@
         "IdentityPoolName": "trick63a55ef0_identitypool_63a55ef0__prod",
         "UserPoolName": "trick63a55ef0_userpool_63a55ef0"
       },
-      "lastPushTimeStamp": "2022-09-23T15:36:41.919Z",
+      "lastPushTimeStamp": "2022-09-25T19:39:34.458Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-prod-214023-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
         "logicalId": "authtrick63a55ef0"
+      }
+    }
+  },
+  "api": {
+    "trick": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "trick63a55ef0",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-09-25T13:15:58.295Z",
+              "description": "trickAPIKey"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authtrick63a55ef0"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "2se2qjs5lnglnixf2ilhrejjh4",
+        "GraphQLAPIEndpointOutput": "https://jfq5y7xwzrevhiglgrp2xkkmgm.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-q7z4mhszpreepnyggipd4n2jsy"
       },
-      "lastPushDirHash": "VqV3Vo5NfhlvZOEJD+KNie6lRL0="
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-prod-214023-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apitrick"
+      },
+      "lastPushTimeStamp": "2022-09-25T19:39:37.596Z",
+      "lastPushDirHash": "zGtcgM7auZP0kB4N4caMZbZyoJo="
     }
   }
 }
