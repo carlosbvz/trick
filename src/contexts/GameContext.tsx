@@ -13,7 +13,7 @@ const GameStateContext = React.createContext<
 function gameReducer(state: State, action: Action) {
   switch (action.type) {
     case "UPDATE_GAME_STATE": {
-      return { gameState: state.gameState };
+      return { gameState: action.payload };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
