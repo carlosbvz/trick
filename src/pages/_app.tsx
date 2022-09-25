@@ -4,6 +4,8 @@ import awsconfig from "../aws-exports";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
 import { AmplifyProvider } from "@aws-amplify/ui-react";
+import DefaultLayout from "../layouts/DefaultLayout";
+import AuthContext from "../contexts/AuthContext";
 
 Amplify.configure(awsconfig);
 
@@ -14,9 +16,13 @@ function MyApp({ Component, pageProps }) {
 function Game(pageProps) {
   return (
     <AmplifyProvider>
-      <GameProvider>
-        <MyApp {...pageProps} />
-      </GameProvider>
+      <AuthContext>
+        <GameProvider>
+          <DefaultLayout>
+            <MyApp {...pageProps} />
+          </DefaultLayout>
+        </GameProvider>
+      </AuthContext>
     </AmplifyProvider>
   );
 }

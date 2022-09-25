@@ -1,7 +1,7 @@
 import * as React from "react";
 import { GameState } from "../interfaces/GameInterfaces";
 
-type Action = { type: "updateGameState" } | { type: "decrement" };
+type Action = { type: "UPDATE_GAME_STATE"; payload: any };
 type Dispatch = (action: Action) => void;
 type State = { gameState: GameState };
 type GameProviderProps = { children: React.ReactNode };
@@ -12,8 +12,8 @@ const GameStateContext = React.createContext<
 
 function gameReducer(state: State, action: Action) {
   switch (action.type) {
-    case "updateGameState": {
-      return { gameState: state.gameState };
+    case "UPDATE_GAME_STATE": {
+      return { gameState: action.payload };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
