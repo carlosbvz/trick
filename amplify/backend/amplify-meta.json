@@ -47,11 +47,55 @@
         "IdentityPoolName": "trick63a55ef0_identitypool_63a55ef0__dev",
         "UserPoolName": "trick63a55ef0_userpool_63a55ef0"
       },
-      "lastPushTimeStamp": "2022-09-23T16:01:13.579Z",
+      "lastPushTimeStamp": "2022-09-25T13:32:50.701Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/auth/trick63a55ef0-cloudformation-template.json",
         "logicalId": "authtrick63a55ef0"
       }
+    }
+  },
+  "api": {
+    "trick": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "trick63a55ef0",
+          "attributes": [
+            "UserPoolId"
+          ]
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-09-25T13:15:58.295Z",
+              "description": "trickAPIKey"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authtrick63a55ef0"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "ueffbvw7dnd4tgt2ffcowvzx7q",
+        "GraphQLAPIEndpointOutput": "https://rqe5jungjfgvpbv4n7slk2glqm.appsync-api.us-east-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-6nhjbt6hiffrxgvl3dr6edelxi"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-trick-dev-213518-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apitrick"
+      },
+      "lastPushTimeStamp": "2022-09-25T13:32:53.966Z",
+      "lastPushDirHash": "X5jbkwU/3VsYpPY6Qi/SLNdXZfk="
     }
   }
 }

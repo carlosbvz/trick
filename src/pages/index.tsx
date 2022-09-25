@@ -3,6 +3,7 @@ import Head from "next/head";
 import Setup from "../components/Setup";
 import GameBoard from "../components/GameBoard";
 import Results from "../components/Results";
+import CreateGame from "../components/CreateGame";
 import User from "../models/User";
 import Game from "../models/Game";
 import { useGame } from "../contexts/GameContext";
@@ -17,6 +18,8 @@ function Section() {
   switch (gameState) {
     case GameState.IDDLE:
       return <Setup />;
+    case GameState.CREATING:
+      return <CreateGame />;
     case GameState.PLAYING:
       return <GameBoard />;
     case GameState.RESULTS:
